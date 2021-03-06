@@ -58,7 +58,16 @@ wn.onkeypress(paddle_b_up, "Up")
 wn.onkeypress(paddle_b_down, "Down")
 
 while True:
+    print(ball.ycor())
     wn.update()
 
     ball.setx(ball.xcor() + ball.dx)
-    ball.sety(ball.xcor() + ball.dy )
+    ball.sety(ball.ycor() + ball.dy)
+
+    if ball.ycor() > 290:
+        ball.sety(290)
+        ball.dy *= -1
+
+    if ball.ycor() < -290:
+        ball.sety(-290)
+        ball.dy *= -1
